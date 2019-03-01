@@ -1,0 +1,27 @@
+server:
+  port: 8666
+
+spring:
+  application:
+    name: ribbonclient
+    helloServiceProvider: helloservice #自定义配置，指定访问远程服务名称，当然也可以写死在代码中
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8800/eureka/ #指向eureka server
+
+
+feign:
+  hystrix:
+    enabled: true #启用hystrix
+    command:
+      default:
+        execution:
+          isolation:
+            strategy: #默认是THREAD,这里演示改成了信号量隔离模式
+              semaphore:
+                maxConcurrentRequests: 3
+
+
+

@@ -1,0 +1,4 @@
+cn\zuowenjun\cloud\service\HelloRemoteService.class
+cn\zuowenjun\cloud\controller\HelloController.class
+cn\zuowenjun\cloud\EurekaclientconsumerApplication.class
+cn\zuowenjun\cloud\service\HelloService.class
