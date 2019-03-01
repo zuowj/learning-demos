@@ -1,0 +1,23 @@
+
+#ref https://www.cnblogs.com/BlogNetSpace/p/8469033.html
+server:
+  port: 8008
+
+spring:
+  application:
+    name: configclient
+
+  cloud:
+    config:
+      name: configclient #对应config server Url中的{application}
+      profile: prod #配置环境，对应config server Url中的{profile}
+      #label: trunk #配置分支(不配置则默认：git则是master,svn则是trunk)，
+      #uri: http://localhost:8866 #配置中心地址
+      discovery:
+        enabled: true #启用服务发现
+        service-id: configserver #指定要从eureka获取的config server的服务ID（即：configserverr的applicationName）
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8800/eureka/

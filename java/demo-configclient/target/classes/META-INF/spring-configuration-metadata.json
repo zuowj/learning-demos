@@ -1,0 +1,38 @@
+{
+  "groups": [
+    {
+      "name": "",
+      "type": "cn.zuowenjun.cloud.model.RemoteConfigProperties",
+      "sourceType": "cn.zuowenjun.cloud.model.RemoteConfigProperties"
+    },
+    {
+      "name": "zuowenjun",
+      "type": "cn.zuowenjun.cloud.model.RemoteConfigProperties$Zuowenjun",
+      "sourceType": "cn.zuowenjun.cloud.model.RemoteConfigProperties",
+      "sourceMethod": "getZuowenjun()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "demo-config-profile-env",
+      "type": "java.lang.String",
+      "sourceType": "cn.zuowenjun.cloud.model.RemoteConfigProperties"
+    },
+    {
+      "name": "zuowenjun.motto",
+      "type": "java.lang.String",
+      "sourceType": "cn.zuowenjun.cloud.model.RemoteConfigProperties$Zuowenjun"
+    },
+    {
+      "name": "zuowenjun.site",
+      "type": "java.lang.String",
+      "sourceType": "cn.zuowenjun.cloud.model.RemoteConfigProperties$Zuowenjun"
+    },
+    {
+      "name": "zuowenjun.skills",
+      "type": "java.lang.String",
+      "sourceType": "cn.zuowenjun.cloud.model.RemoteConfigProperties$Zuowenjun"
+    }
+  ],
+  "hints": []
+}

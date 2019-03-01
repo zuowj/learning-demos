@@ -1,0 +1,5 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #暴露所有端口，也可以指定某一个环境（先management.endpoint.{profile}.enabled=true，然后这里指定这个{profile},多个用,分隔）
