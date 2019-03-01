@@ -1,0 +1,1 @@
+org.springframework.boot.env.PropertySourceLoader=cn.zuowenjun.cloud.MyPropertySourceLoader
