@@ -1,0 +1,23 @@
+server:
+  port: 8800
+
+spring:
+  applcation:
+    name: demo-eurekaserver
+
+# config detail:https://www.jianshu.com/p/98f4e5f6bca7  or https://blog.csdn.net/wo18237095579/article/details/83276352
+eureka:
+  instance:
+    hostname: eurekaserver1 #实例主机名，集群时需要且唯一
+  server:
+    enable-self-preservation: true #关闭自我保护，正式环境不要这么做
+    eviction-interval-timer-in-ms: 5000 #定期清理失效节点，默认60s
+    peer-eureka-nodes-update-interval-ms: 6000 #同步更新节点频率，默认10min
+    renewal-percent-threshold: 0.49 #默认0.85
+    response-cache-auto-expiration-in-seconds: 30
+
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka/
