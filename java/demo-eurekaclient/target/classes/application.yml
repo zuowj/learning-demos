@@ -1,0 +1,13 @@
+server:
+  port: 8801
+
+spring:
+  application:
+    name: helloservice
+    ip: localhost #自定义配置，在代码中有用到
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8800/eureka/
+
