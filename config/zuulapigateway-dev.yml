@@ -1,0 +1,5 @@
+zuul:
+  routes:
+    test-fromgit:
+      path: /testgit/**
+      serviceId: testservice
