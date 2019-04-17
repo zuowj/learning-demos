@@ -1,0 +1,11 @@
+server:
+  port: 1086
+
+spring:
+  application:
+    name: testservice
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8800/eureka/

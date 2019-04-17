@@ -1,0 +1,15 @@
+server:
+  port: 1088
+
+spring:
+  application:
+    name: testservice-consumer
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8800/eureka/
+
+feign:
+  hystrix:
+    enabled: true
