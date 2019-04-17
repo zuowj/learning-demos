@@ -1,0 +1,52 @@
+server:
+  port: 1008
+
+spring:
+  application:
+    name: zuulapigateway
+
+  #配置DB连接（这里是SQL SERVER），以便实现CustomRouteLocator类中可以从DB表中获取路由配置，从而实现动态路由配置
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://host:ip;DatabaseName=dbName
+    username: dbuser
+    password: password
+
+  #配置配置中心，目的：可以实现从config server动态获取ZuulProperties所需的信息，从而实现动态路由配置(注意必需在bootstrap.yml中添加)
+  cloud:
+    config:
+      name: zuulapigateway
+      profile: dev
+      uri: http://localhost:8866
+
+#配置连接到注册中心，目的：1.网关本身的集群高可用；2.可以获得所有已注册服务信息，可以通过path->serviceId进行路由
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8800/eureka/
+
+#配置zuul网关静态路由信息
+zuul:
+  routes:
+    testservice: #通过path到指定服务ID路由（服务发现）
+      path: /test/**
+      serviceId: testservice
+    testservice2:
+      path: /**
+      serviceId: testservice
+#    zwj: #直接path到URL路由（注意：URL模式不会触发网关的Fallback，参考：https://blog.csdn.net/qq_41293765/article/details/80911414）
+#      path: /**
+#      url: http://www.zuowenjun.cn/
+  retryable: true
+
+  ribbon:
+    #  ribbon重试超时时间
+    ConnectTimeout: 250
+    #  建立连接后的超时时间
+    ReadTimeout: 1000
+    #  对所有操作请求都进行重试
+    OkToRetryOnAllOperations: true
+    #  切换实例的重试次数
+    MaxAutoRetriesNextServer: 2
+    #  对当前实例的重试次数
+    MaxAutoRetries: 1
